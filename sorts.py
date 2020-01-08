@@ -1,6 +1,6 @@
 import random
 
-def bubble_sort(list):
+def bubble_sort(list, comparison_function):
   swaps = 0
   sorted = False
 
@@ -8,7 +8,7 @@ def bubble_sort(list):
     sorted = True
 
     for idx in range(len(list) - 1):
-      if list[idx] > list[idx + 1]:
+      if comparison_function(list[idx], list[idx + 1]):
         sorted = False
         list[idx], list[idx + 1] = list[idx + 1], list[idx]
         swaps += 1
