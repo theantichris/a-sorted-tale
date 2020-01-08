@@ -7,8 +7,6 @@ def load_books(filename):
   with open(filename) as file:
       shelf = csv.DictReader(file)
       for book in shelf:
-          continue # TODO
-
           bookshelf.append(book)
 
   return bookshelf
