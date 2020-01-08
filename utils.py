@@ -6,7 +6,10 @@ def load_books(filename):
 
   with open(filename) as file:
       shelf = csv.DictReader(file)
+      
       for book in shelf:
-          bookshelf.append(book)
+        book["author_lower"] = book["author"].lower()
+        book["title_lower"] = book["title"].lower()
+        bookshelf.append(book)
 
   return bookshelf
