@@ -17,7 +17,7 @@ def bubble_sort(list, comparison_function):
 
   return list
 
-def quicksort(list, start, end):
+def quicksort(list, start, end, comparison_function):
   if start >= end:
     return
 
@@ -29,11 +29,11 @@ def quicksort(list, start, end):
   less_than_pointer = start
   
   for i in range(start, end):
-    if pivot_element > list[i]:
+    if comparison_function(pivot_element, list[i]):
       list[i], list[less_than_pointer] = list[less_than_pointer], list[i]
       less_than_pointer += 1
   
   list[end], list[less_than_pointer] = list[less_than_pointer], list[end]
   
-  quicksort(list, start, less_than_pointer - 1)
-  quicksort(list, less_than_pointer + 1, end)
+  quicksort(list, start, less_than_pointer - 1, comparison_function)
+  quicksort(list, less_than_pointer + 1, end, comparison_function)

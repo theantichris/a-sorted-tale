@@ -13,7 +13,12 @@ bookshelf = utils.load_books("books_small.csv")
 # for book in sort_1:
 #     print("{} - {}".format(book["title"], book["author"]))
 
-bookshelf_v1 = bookshelf.copy()
-sort_2 = sorts.bubble_sort(bookshelf_v1, by_author_ascending)
-for book in sort_2:
+# bookshelf_v1 = bookshelf.copy()
+# sort_2 = sorts.bubble_sort(bookshelf_v1, by_author_ascending)
+# for book in sort_2:
+#     print("{} - {}".format(book["title"], book["author"]))
+
+bookshelf_v2 = bookshelf.copy()
+sorts.quicksort(bookshelf_v2, 0, len(bookshelf_v2) - 1, by_author_ascending)
+for book in bookshelf_v2:
     print("{} - {}".format(book["title"], book["author"]))
